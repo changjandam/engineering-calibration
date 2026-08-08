@@ -1,53 +1,70 @@
-# Engineering Calibration
+# Engineering Calibration｜工程判斷校準紀錄
 
-This repository is a record of how I reason through unfamiliar engineering
-scenarios, where my first assumptions fail, and how my mental models evolve.
+這個 repository 記錄我面對陌生工程情境時如何思考、第一次假設在哪裡
+失效，以及 mental model 如何隨著學習與重測而改變。
+
+它是公開的工程判斷與推理證據，不是技術部落格、side project、面試標準
+答案集，也不是自我評分牆。
+
+This repository records how I reason through unfamiliar engineering scenarios,
+where my first assumptions fail, and how my mental models evolve.
 
 It is public evidence of engineering judgment. It is not a blog, a side
 project, an interview-answer collection, or a self-rating wall.
 
-## What each record shows
+## 每筆紀錄展示什麼｜What each record shows
 
-Every record uses the same structure so that the reasoning is inspectable over
-time.
+每筆紀錄使用相同結構，讓讀者能分辨「第一次遇到問題時的能力」與「學習後
+整理出的答案」。
 
-- **Scenario** defines a realistic engineering problem.
-- **Constraints** removes convenient but unrealistic assumptions.
-- **My First Response** preserves the original response without retroactive
-  polishing.
-- **What I Got Right** identifies useful reasoning already present.
-- **What I Missed** names the specific gap exposed by the scenario.
-- **Updated Mental Model** records the model I use after studying the gap.
-- **Retest** defines a different future scenario that can test transfer.
+- **情境｜Scenario**：定義貼近真實工作的工程問題。
+- **限制｜Constraints**：排除不切實際或過度方便的假設。
+- **第一次回答｜My First Response**：保留原始用字、錯誤與不完整之處，
+  不事後美化。
+- **做對的部分｜What I Got Right**：指出第一次回答中已存在的有效判斷。
+- **遺漏的部分｜What I Missed**：明確記下未辨識的 failure mode、機制、
+  差異或決策條件。
+- **更新後的心智模型｜Updated Mental Model**：記錄補強後的理解。
+- **重測｜Retest**：用不同情境檢驗概念是否真的能遷移。
 
-## Principles
+Every record uses the same structure so that the reasoning remains inspectable
+over time. The first response is kept separate from the updated explanation.
 
-The repository follows a few constraints to keep the evidence honest.
+## 原則｜Principles
 
-- First responses remain in their original language and wording.
-- Later understanding is separated from the initial answer.
-- Records avoid seniority scores and let readers judge the reasoning.
-- Work scenarios are generalized to remove company-sensitive details.
-- A concept is not considered internalized until it transfers to a new
-  scenario.
-- Quality matters more than volume.
+這些限制用來維持紀錄的可信度。
 
-## Initial calibration set
+- 第一次回答保留原本語言與用字，不修正成看似完美的答案。
+- 後續理解與初始回答分開，避免倒果為因。
+- 不公開自評的職級或分數，讓讀者自行判斷 reasoning。
+- 工作案例會抽象化，移除公司與客戶敏感資訊。
+- 看完內容不等於內化；必須能轉移到新的陌生情境。
+- 重視資訊密度與品質，不追求大量產文。
 
-The first set moves from architecture boundaries to distributed failure and
-database concurrency.
+The English records follow the same rules: first responses stay unchanged,
+later understanding remains separate, sensitive details are generalized, and
+transfer is tested through a new scenario.
 
-1. [Durable AI Execution](ai-systems/01-durable-ai-execution.md) examines moving
-   an agent loop from a client-bound session to a durable backend runtime.
-2. [DB + Queue Reliability](systems/02-db-queue-reliability.md) examines a job
-   committed to PostgreSQL whose queue message never appears.
-3. [Last Item Race](systems/03-last-item-race.md) examines two buyers racing for
-   the final inventory item.
+## 第一批紀錄｜Initial calibration set
 
-Use [TEMPLATE.md](TEMPLATE.md) for future records.
+第一批紀錄從 AI architecture boundary，一路深入到 distributed failure
+與 database concurrency。
 
-## Reading note
+1. [Durable AI Execution｜耐久 AI 執行](ai-systems/01-durable-ai-execution.md)
+   檢驗如何把 agent loop 從綁定前端 session 的生命週期，移到可恢復的
+   後端 workflow runtime。
+2. [DB + Queue Reliability｜資料庫與佇列可靠性](systems/02-db-queue-reliability.md)
+   檢驗 PostgreSQL 已提交 job，但 queue message 消失時的 failure model。
+3. [Last Item Race｜最後一件商品的競態](systems/03-last-item-race.md)
+   檢驗兩位買家同時搶最後一件庫存時的 concurrency control。
+
+後續紀錄使用 [雙語固定模板](TEMPLATE.md)。
+
+## 閱讀提醒｜Reading note
+
+My First Response 是歷史證據，不代表推薦答案。Updated Mental Model
+說明後來理解了什麼，Retest 則定義未來如何驗證這個理解是否真的內化。
 
 The first-response sections are historical evidence, not recommended final
-answers. The updated sections describe what changed, and the retest sections
-state how that change will be challenged later.
+answers. Updated sections describe what changed, and retest sections define how
+that change will be challenged.
