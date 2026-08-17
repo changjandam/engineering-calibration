@@ -45,10 +45,7 @@ The English records follow the same rules: first responses stay unchanged,
 later understanding remains separate, sensitive details are generalized, and
 transfer is tested through a new scenario.
 
-## 第一批紀錄｜Initial calibration set
-
-第一批紀錄從 AI architecture boundary，一路深入到 distributed failure
-與 database concurrency。
+## Calibration records｜校準紀錄
 
 1. [Durable AI Execution｜耐久 AI 執行](ai-systems/01-durable-ai-execution.md)
    檢驗如何把 agent loop 從綁定前端 session 的生命週期，移到可恢復的
@@ -57,6 +54,10 @@ transfer is tested through a new scenario.
    檢驗 PostgreSQL 已提交 job，但 queue message 消失時的 failure model。
 3. [Last Item Race｜最後一件商品的競態](systems/03-last-item-race.md)
    檢驗兩位買家同時搶最後一件庫存時的 concurrency control。
+4. [Stale Search Response｜搜尋結果競態](frontend/04-stale-search-response.md)
+   檢驗 frontend concurrent requests 亂序回來時，如何避免舊 response 覆蓋最新使用者意圖。
+5. [Zero-Downtime Schema Change｜不中斷服務的 Schema 變更](systems/05-zero-downtime-schema-change.md)
+   檢驗 rolling deployment、舊資料與 schema migration 同時存在時的 compatibility 與 rollout reasoning。
 
 後續紀錄使用 [雙語固定模板](TEMPLATE.md)。
 
